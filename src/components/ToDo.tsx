@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useSetRecoilState } from "recoil";
-import { arrayBuffer } from "stream/consumers";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Categories, IToDo, toDoState } from "../atoms";
 //interface만 가져와서 ToDo.text 안하고 그냥 key바로 써도 됨
 
 function ToDo({ text, category, id }: IToDo) {
+  const toDos = useRecoilValue(toDoState);
   const setToDos = useSetRecoilState(toDoState);
   const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const name = event.currentTarget.name;
@@ -21,6 +21,9 @@ function ToDo({ text, category, id }: IToDo) {
       ];
     });
   };
+  useEffect(() => {
+    window.localStorage.setItem("toDos_key", JSON.stringify(toDos));
+  }, [toDos]);
 
   return (
     <li>

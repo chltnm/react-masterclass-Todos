@@ -48,5 +48,5 @@
   "devDependencies": {
     "@types/styled-components": "^5.1.18"
   },
-  "homepage": "https://chltnm.github.io/react-masterclass-Todos/"
+  "homepage": "https://chltnm.github.io/react-masterclass-todos/"
 }

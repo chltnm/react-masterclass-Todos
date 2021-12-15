@@ -7,14 +7,23 @@ import ToDo from "./ToDo";
 function ToDoList() {
   const toDos = useRecoilValue(toDoSelector); //fiter한 ToDos
   const setToDos = useSetRecoilState(toDoState);
-  useEffect(() => {
-    window.localStorage.setItem("toDos_key", JSON.stringify(toDos));
-  }, [toDos]);
+
   // const toDos = useRecoilValue(toDoState); //배열인 아톰
   const [category, setCategory] = useRecoilState(categoryState);
   const onInput = (event: React.FormEvent<HTMLSelectElement>) => {
     setCategory(event.currentTarget.value as any);
   };
+
+  const savedToDos = window.localStorage.getItem("toDos_key");
+  const parsedToDos = JSON.parse(savedToDos as any);
+  console.log(parsedToDos);
+
+  useEffect(() => {
+    setToDos(() => parsedToDos);
+  }, []);
+
+  console.log(toDos);
+
   return (
     <div>
       <h1>To Dos</h1>
@@ -27,6 +36,7 @@ function ToDoList() {
       </select>
 
       <CreateToDo />
+
       {toDos?.map((toDo) => (
         <ToDo key={toDo.id} {...toDo} />
       ))}
