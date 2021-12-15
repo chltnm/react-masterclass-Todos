@@ -12,7 +12,7 @@ function ToDo({ text, category, id }: IToDo) {
       const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
       // const oldToDo = oldToDos[targetIndex];
       const newToDo = { text, id, category: name as any };
-      console.log(newToDo); //category가 바꼈기때문에
+      // console.log(newToDo); //category가 바꼈기때문에
 
       return [
         ...oldToDos.slice(0, targetIndex),

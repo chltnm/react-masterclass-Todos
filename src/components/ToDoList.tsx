@@ -22,8 +22,6 @@ function ToDoList() {
     setToDos(() => parsedToDos);
   }, []);
 
-  console.log(toDos);
-
   return (
     <div>
       <h1>To Dos</h1>
