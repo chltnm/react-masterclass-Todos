@@ -46,7 +46,8 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.18"
+    "@types/styled-components": "^5.1.18",
+    "gh-pages": "^3.2.3"
   },
   "homepage": "https://chltnm.github.io/react-masterclass-todos/"
 }
